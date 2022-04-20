@@ -36,7 +36,7 @@ class HomeController extends Controller
         $data=Products::find($id);
         // return view('users.product_details',compact('data'));
         // return view('user.product_details');
-        dd($data);
+        // dd($data);
     }
     // addtocart function
     public function addtocart(Request $request,$id){

@@ -66,7 +66,7 @@
                 <p>{{$product->description}}</p>
             <form action="{{ url('/addtocart/'.$product->id) }}" method="post">
                 @csrf
-                <input type="number" name="amount" min="0" placeholder="amount?" oninput="validity.valid||(value='');">
+                <input type="number" name="amount" min="0" placeholder="insert a amount" oninput="validity.valid||(value='');" required>
                 <button class="btn" type="submit" style="background: green;">Add to Cart</button>
             </form>
             </div>
