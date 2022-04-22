@@ -22,7 +22,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/redirect',[HomeController::class,'redirect']);
 
 Route::get('/',[HomeController::class,'index']);
-Route::view('/cart','users.cart');
+
+
 Route::get('/adminproducts',[AdminController::class,'SetProducts']);
 Route::get('/showproducts',[AdminController::class,'ShowProducts']);
 Route::resource('/addproducts',AdminController::class);
@@ -45,3 +46,5 @@ Route::view('/details/{id}',[HomeController::class,'details']);
 
 // Add to cart
 Route::post('/addtocart/{id}',[HomeController::class,'addtocart']);
+Route::get('/cart',[HomeController::class,'cart'])->middleware('auth');
+Route::get('/removeFromCart/{id}',[HomeController::class,'removeFromCart']);

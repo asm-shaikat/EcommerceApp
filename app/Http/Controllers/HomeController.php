@@ -56,8 +56,22 @@ class HomeController extends Controller
         else{
             return redirect('login');
         }
-        // $data=Products::find($id);
-        // dd($data);
+        
+    }
+    // THis function is for viewing cart products
+    public function cart(Request $request){
+        $usermail=Auth::user()->email;
+        $info=cart::where('email',$usermail)->get();
+        $i=cart::where('email',$usermail)->get('amount');
+
+        // For testing purpose
+        // dd($info);
+        return view('users.cart',compact('info','i'));
+    }
+    // This function is for removing cart products
+    public function removeFromCart($id){
+        Cart::destroy($id);
+        return redirect()->back();
     }
     
 }
