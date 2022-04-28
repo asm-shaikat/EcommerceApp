@@ -6,7 +6,7 @@ use App\Models\Products;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
     public function redirect(){
@@ -33,10 +33,8 @@ class HomeController extends Controller
         }
     }
     public function details(Request $request,$id){
-        $data=Products::find($id);
-        // return view('users.product_details',compact('data'));
-        // return view('user.product_details');
-        // dd($data);
+        $data=DB::table('products')->where('id',$id)->get();
+        return view('users.product_details',compact('data'));
     }
     // addtocart function
     public function addtocart(Request $request,$id){

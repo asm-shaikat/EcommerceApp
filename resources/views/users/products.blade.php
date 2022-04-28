@@ -60,7 +60,9 @@
         <div class="row">
         @foreach($data as $product)
             <div class="col-4">
-                <a href="{{ url('/details/'.$product->id) }}"><img src="{{ $product->pictures }}"></a>
+            <a href="{{ url('/details/'.$product->id) }}">
+                <img src="{{ $product->pictures }}">
+            </a>
                 <h4>{{$product->title}}</h4>
                 <p>{{$product->price}}</p>
                 <p>{{$product->description}}</p>

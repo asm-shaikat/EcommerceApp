@@ -42,7 +42,7 @@ Route::post('/updateProducts1/{id}',[AdminController::class,'updateProducts1']);
 
 
 // route for specific product view
-Route::view('/details/{id}',[HomeController::class,'details']);
+Route::get('/details/{id}',[HomeController::class,'details']);
 
 // Add to cart
 Route::post('/addtocart/{id}',[HomeController::class,'addtocart']);
