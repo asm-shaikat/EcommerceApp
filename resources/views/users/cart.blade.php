@@ -55,21 +55,20 @@
                 </td>
                 <td>{{$info->amount}}</td>
                 <td>{{$a=$info->amount*$info->price}}</td>
-                <?php $x=$x+$a; ?>
             </tr>
             @endforeach
         </table>
         <!-- $x=x+$info->amount*$info->price; -->
-        <!-- <div class="total-price">
+        <div class="total-price">
             <table>
            
                 <tr>
                     <td>Total</td>
-                    <td>{{$x}}</td>
+                    <td>{{$sum}}</td>
                 </tr>
             </table>
-        </div> -->
-        <a href="" style="margin-left: 500px;" ><button type="submit" class="btn btn-success">Confirm Order</button></a>
+        </div>
+        <a href="{{ url('/example1') }}" style="margin-left: 500px;"><button type="submit" class="btn btn-success">Confirm Order</button></a>
     </div>
     
     <!-- Footer -->

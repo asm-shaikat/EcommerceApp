@@ -61,11 +61,15 @@ class HomeController extends Controller
         $usermail=Auth::user()->email;
         $info=cart::where('email',$usermail)->get();
         $i=cart::where('email',$usermail)->get('amount');
-
-        // For testing purpose
-        // dd($info);
-        return view('users.cart',compact('info','i'));
+        $sum=DB::table('carts')->select('price','amount')->where('email',$usermail)->sum('price');
+        // $sum = DB::table('carts')
+        //      ->select(DB::raw('SUM(price)'))
+        //      ->where('email','usermail')
+        //      ->get();
+        return view('users.cart',compact('info','i','sum'));
     }
+
+
     // This function is for removing cart products
     public function removeFromCart($id){
         Cart::destroy($id);
